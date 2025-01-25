@@ -3,14 +3,29 @@ package personnages;
 public abstract class Personnages {
 	private String nom;
 	private int force;
+	private String classe;
 	
 	public Personnages(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
 	}
 	
+	public Personnages(String classe, String nom, int force) {
+		this.nom = nom;
+		this.force = force;
+		this.classe = classe;
+	}
+	
+	public String getClasse() {
+		return classe;
+	}
+
 	public String getNom() {
 		return nom;
+	}
+	
+	public int getForce() {
+		return force;
 	}
 	
 	public void parler(String texte) {
