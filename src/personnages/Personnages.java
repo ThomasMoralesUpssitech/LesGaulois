@@ -49,4 +49,8 @@ public abstract class Personnages {
 			parler("Aie !");
 		}
 	}
+	
+	public boolean estATerre() {
+        return force <= 0;
+    }
 }

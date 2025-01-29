@@ -4,6 +4,7 @@ import personnages.Gaulois;
 import personnages.Soldat;
 import sites.Camp;
 import sites.Village;
+import personnages.Druides;
 
 public class TestSites {
 	public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class TestSites {
 		Gaulois assurancetourix = new Gaulois("Assurancetourix", 2);
 		Gaulois asterix = new Gaulois("Astérix", 5);
 		Gaulois obelix = new Gaulois("Obélix", 15);
-		Gaulois panoramix = new Gaulois("Panoramix", 2);
+		Gaulois panoramix = new Druides("Panoramix", 2);
 		Gaulois abracourcix = new Gaulois("Abracourcix", 5);
 		
 		Soldat brutus = new Soldat("Centurion", "Brutus", 5);
@@ -42,15 +43,5 @@ public class TestSites {
 		campRomain.ajouterSoldat(tulliusOctopus);
 		campRomain.ajouterSoldat(ballondebaudrus);
 		
-		villageGaulois.afficherVillageois();
-		campRomain.afficherSoldats();
-		
-		villageGaulois.changerChef(abracourcix);
-		campRomain.changerCommandant(briseradius);
-		campRomain.ajouterSoldat(briseradius);
-		campRomain.changerCommandant(chorus);
-		
-		villageGaulois.afficherVillageois();
-		campRomain.afficherSoldats();
 	}
 }
