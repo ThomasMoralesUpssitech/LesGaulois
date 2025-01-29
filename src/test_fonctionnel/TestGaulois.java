@@ -6,7 +6,7 @@ import personnages.Soldat;
 
 public class TestGaulois {
 	public static void main(String[] args) {
-		Gaulois asterix = new Gaulois("Astérix", 8);
+		Gaulois asterix = new Gaulois("Astérix", 5);
 		Soldat minus = new Soldat("Soldat", "Minus", 6);
 		Druides panoramix = new Druides("Panoramix", 1);
 		Gaulois obelix = new Gaulois("Obélix", 15);
@@ -24,8 +24,11 @@ public class TestGaulois {
 		asterix.parler("Bonjour à tous.");
 		minus.parler("UN GAU... UN GAUGAU...");
 
-		while (!minus.estATerre()) {
+		while (!minus.estATerre() && !asterix.estATerre()) {
 			asterix.frapper(minus);
+			if (!minus.estATerre()) {
+				minus.frapper(asterix);
+			}
 		}
 	}
 }

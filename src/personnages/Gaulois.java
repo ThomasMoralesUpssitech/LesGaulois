@@ -24,18 +24,14 @@ public class Gaulois extends Personnages{
 	public void effetPotion() {
         if (effetPotion > 0) {
             effetPotion -= 0.5;
-            if (effetPotion < 0) {
-                effetPotion = 0;
-            }
         }
     }
 	
 	@Override
 	public void frapper(Personnages adversaire) {
         int forceUtilisee = getForceAvecPotion();
-        System.out.println("Le " + donnerAuteur() + " " + getNom() + " donne un grand coup au " + adversaire.donnerAuteur() + " " + adversaire.getNom());
+        System.out.println("Le " + donnerAuteur() + " " + getNom() + " donne un grand coup de force " + forceUtilisee/3 + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom());
         adversaire.recevoirCoup(forceUtilisee/3);
-
         effetPotion();
     }
 }
