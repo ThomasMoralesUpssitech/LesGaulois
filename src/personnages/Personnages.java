@@ -7,12 +7,12 @@ public abstract class Personnages {
 	
 	public Personnages(String nom, int force) {
 		this.nom = nom;
-		this.force = force;
+		this.setForce(force);
 	}
 	
 	public Personnages(String classe, String nom, int force) {
 		this.nom = nom;
-		this.force = force;
+		this.setForce(force);
 		this.classe = classe;
 	}
 	
@@ -28,6 +28,10 @@ public abstract class Personnages {
 		return force;
 	}
 	
+	public void setForce(int force) {
+		this.force = force;
+	}
+
 	public void parler(String texte) {
 		System.out.println("Le " + donnerAuteur() + " " + nom + " : " + texte);
 	}
@@ -35,22 +39,22 @@ public abstract class Personnages {
 	protected abstract String donnerAuteur();
 	
 	public void frapper(Personnages adversaire) {
-		System.out.println("Le " + donnerAuteur() + " " + getNom() + " donne un grand coup de force " + getForce()/3 + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom());
-		adversaire.recevoirCoup(force/3);
+		System.out.println("Le " + donnerAuteur() + " " + getNom() + " donne un grand coup de force " + getForce() + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom());
+		adversaire.recevoirCoup(getForce());
 	}
 	
 	public void recevoirCoup(int coup) {
-		if(coup >= force) {
-			force = 0;
-			parler("J'abandonne...");
+		if(coup >= getForce()) {
+			setForce(0);
+			parler("<< J'abandonne... >>");
 		}
 		else {
-			force = force - coup;
-			parler("Aie !");
+			setForce(getForce() - coup);
+			parler("<< Aie ! >>");
 		}
 	}
 	
 	public boolean estATerre() {
-        return force <= 0;
+        return getForce() <= 0;
     }
 }

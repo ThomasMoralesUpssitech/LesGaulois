@@ -8,7 +8,6 @@ public class Gaulois extends Personnages{
 	}
 
 	@Override
-	
 	protected String donnerAuteur() {
 		return "gaulois";
 	}
@@ -18,7 +17,7 @@ public class Gaulois extends Personnages{
 	}
 	
 	public int getForceAvecPotion() {
-        return getForce() + effetPotion;
+        return getForce() * effetPotion;
     }
 
 	public void effetPotion() {
@@ -30,8 +29,8 @@ public class Gaulois extends Personnages{
 	@Override
 	public void frapper(Personnages adversaire) {
         int forceUtilisee = getForceAvecPotion();
-        System.out.println("Le " + donnerAuteur() + " " + getNom() + " donne un grand coup de force " + forceUtilisee/3 + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom());
-        adversaire.recevoirCoup(forceUtilisee/3);
+        System.out.println("Le " + donnerAuteur() + " " + getNom() + " donne un grand coup de force " + forceUtilisee + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom());
+        adversaire.recevoirCoup(forceUtilisee);
         effetPotion();
     }
 }
