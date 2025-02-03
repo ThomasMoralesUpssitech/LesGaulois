@@ -8,7 +8,7 @@ public class Gaulois extends Personnages{
 	}
 
 	@Override
-	protected String donnerAuteur() {
+	public String donnerAuteur() {
 		return "gaulois";
 	}
 	
@@ -17,7 +17,11 @@ public class Gaulois extends Personnages{
 	}
 	
 	public int getForceAvecPotion() {
-        return getForce() * effetPotion;
+		if (effetPotion >= 1) {
+			return getForce() * effetPotion;
+		} else {
+			return getForce();
+		}
     }
 
 	public void effetPotion() {

@@ -36,7 +36,7 @@ public abstract class Personnages {
 		System.out.println("Le " + donnerAuteur() + " " + nom + " : " + texte);
 	}
 	
-	protected abstract String donnerAuteur();
+	public abstract String donnerAuteur();
 	
 	public void frapper(Personnages adversaire) {
 		System.out.println("Le " + donnerAuteur() + " " + getNom() + " donne un grand coup de force " + getForce() + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom());

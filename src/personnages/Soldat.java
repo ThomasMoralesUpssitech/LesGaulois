@@ -11,7 +11,7 @@ public class Soldat extends Personnages {
 	}
 
 	@Override
-	protected String donnerAuteur() {
+	public String donnerAuteur() {
 		return getClasse();
 	}
 	
@@ -26,10 +26,19 @@ public class Soldat extends Personnages {
 	
 	@Override
 	public void recevoirCoup(int coup) {
-		int reduction = equipements.stream().mapToInt(Equipement::getReduction).sum();
-		equipements.forEach(e -> System.out.println("Le " + e.name().toLowerCase() + " absorbe " + e.getReduction() + " du coup"));
-		coup = coup - reduction;
-		if(coup >= getForce()) {
+	    for (Equipement equip : new Equipement[] { Equipement.BOUCLIER, Equipement.CASQUE, Equipement.PLASTRON }) {
+	        if (equipements.contains(equip)) {
+	            if (coup >= equip.getReduction()) {
+	            	coup = coup - equip.getReduction();
+	                System.out.println("Le " + donnerAuteur() + " " + getNom() + " perd son " + equip.name().toLowerCase() + " !");
+	                equipements.remove(equip);
+	            } else {
+	            	coup = 0;
+	            }
+	        }
+	    }
+
+	    if(coup >= getForce()) {
 			setForce(getForce() - getForce());
 			parler("<< J'abandonne... >>");
 		}

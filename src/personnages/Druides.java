@@ -8,7 +8,7 @@ public class Druides extends Gaulois{
 	}
 	
 	@Override
-	protected String donnerAuteur() {
+	public String donnerAuteur() {
 		return "gaulois druide";
 	}
 	
